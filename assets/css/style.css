@@ -308,3 +308,11 @@ html,body{overflow-x:clip}
 .contatos .ccard:first-child i{background:var(--wpp);color:var(--preto)}
 @media (max-width:1100px){.carrossel .atl{flex-basis:calc((100% - 40px)/3)}.footer .topo{grid-template-columns:1fr 1fr}}
 @media (max-width:760px){.hero-home .fundo{object-position:72% center}.hero-home::after{background:linear-gradient(180deg,rgba(0,0,0,.35) 0,rgba(0,0,0,.82) 45%,rgba(0,0,0,.9) 100%)}.hero-home .container{padding-top:240px}.carrossel .atl{flex-basis:calc((100% - 20px)/2.2)}.grid3.contatos{grid-template-columns:1fr}.cta-card{padding:36px 24px}.cta-card h2{font-size:32px}.header .container{height:84px}.logo img{width:86px}.footer .topo{grid-template-columns:1fr}}
+/* v2.1 */
+.drop-menu .ic{color:#fff}
+.drop-menu a:hover{color:var(--preto)}
+.drop-menu .todos,.drop-menu .todos:hover{color:var(--vermelho-botao)}
+.drop-menu .todos:hover{text-decoration:underline;text-underline-offset:3px}
+@media (max-width:960px){.drop-menu a:hover{color:#fff}.drop-menu .todos,.drop-menu .todos:hover{color:var(--vermelho-marca)}}
+.cta-card .texto>span.btn{color:var(--preto);font-size:16px;letter-spacing:0;text-transform:none;align-self:flex-start}
+.footer .base{justify-content:center}

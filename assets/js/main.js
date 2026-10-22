@@ -12,3 +12,16 @@
 document.querySelectorAll('.video[data-yt]').forEach(function(v){
   v.addEventListener('click',function(){var f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+v.dataset.yt+'?autoplay=1&rel=0';f.allow='autoplay; encrypted-media; picture-in-picture';f.allowFullscreen=true;f.title=v.dataset.title||'Depoimento em vídeo';v.innerHTML='';v.appendChild(f);},{once:true});
 });
+(function(){
+  var els=document.querySelectorAll('[data-contador]');if(!els.length)return;
+  var reduz=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function anima(el){
+    var fim=+el.dataset.contador,pre=el.dataset.prefixo||'',suf=el.dataset.sufixo||'',t0=null,dur=1800;
+    if(reduz){el.textContent=pre+fim+suf;return;}
+    function passo(t){if(!t0)t0=t;var p=Math.min((t-t0)/dur,1),e=1-Math.pow(1-p,3);el.textContent=pre+Math.round(fim*e)+suf;if(p<1)requestAnimationFrame(passo);}
+    el.textContent=pre+'0'+suf;requestAnimationFrame(passo);
+  }
+  if(!('IntersectionObserver' in window)){return;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){anima(x.target);io.unobserve(x.target);}});},{threshold:.6});
+  els.forEach(function(el){io.observe(el);});
+})();
